@@ -1,6 +1,6 @@
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
-import auth from "./auth";
+import auth from "../Firebase/auth";
 
 function Login() {
   const handleLogin = () => {

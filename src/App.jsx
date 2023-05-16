@@ -1,11 +1,11 @@
-import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
-import auth from "./auth";
-import Login from "./Login";
-import Feed from "./Feed";
+import auth from "./Firebase/auth";
+import Login from "./Components/Login";
+import Feed from "./Components/Feed";
+import { useAuth } from "./Context/AuthContect";
 
 function App() {
-  const [user] = useAuthState(auth);
+  const user = useAuth()
 
   const handleLogout = () => {
     signOut(auth);
@@ -24,6 +24,9 @@ function App() {
         </div>
       </nav>
       {user ? <Feed user={user} /> : <Login />}
+      <pre>
+        {JSON.stringify(user, null, 2)}
+      </pre>
     </div>
   );
 }
