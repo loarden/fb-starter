@@ -24,9 +24,6 @@ function App() {
         </div>
       </nav>
       {user ? <Feed user={user} /> : <Login />}
-      <pre>
-        {JSON.stringify(user, null, 2)}
-      </pre>
     </div>
   );
 }
