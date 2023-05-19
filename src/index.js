@@ -11,28 +11,39 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Message from './pages/Message';
 import Protected from './Components/Protected';
+import Profile from './pages/Profile';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Layout />,
     children: [
       {
-        path: '/',
-        element: <Home />
+        path: "/",
+        element: <Home />,
       },
       {
-        path: '/about',
-        element: <About />
+        path: "/about",
+        element: <About />,
       },
       {
-        path: '/message/:id',
-        element: <Protected>
-                  <Message/>
-                 </Protected>
-      }
-    ]
-  }
+        path: "/message/:id",
+        element: (
+          <Protected>
+            <Message />
+          </Protected>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <Protected>
+            <Profile />
+          </Protected>
+        ),
+      },
+    ],
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
